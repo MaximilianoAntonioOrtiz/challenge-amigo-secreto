@@ -22,7 +22,7 @@ function agregarAmigo() {
 }
 
 /* Crea una función que recorra el array amigos y agregue cada nombre como un elemento <li> dentro de una lista HTML. 
-   Usa innerHTML para limpiar la lista antes de agregar nuevos elemento */
+   Usa innerHTML para limpiar la lista antes de agregar nuevos elementos */
 /* Obtener el elemento de la lista: Utilizar document.getElementById() o document.querySelector() para seleccionar 
    la lista donde se mostrarán los amigos. */
 function mostrarAmigos() {
@@ -37,5 +37,26 @@ function mostrarAmigos() {
         li.textContent = elementoAmigo;        // asignar el nombre
         lista.appendChild(li);                  // agregar a lista <ul>
     }
-    
+}
+
+/* Crea una función que seleccione de manera aleatoria uno de los nombres almacenados en el array amigos.
+   Usa Math.random() y Math.floor() para obtener un índice aleatorio. */
+function sortearAmigo() {
+    // Obtener el elemento donde se mostrará el resultado
+    let resultado = document.getElementById('resultado');
+
+    // Validar que haya amigos disponibles
+    if (amigos.length === 0) {
+        resultado.innerHTML = "No hay amigos para sortear.";
+        return; // salir de la función si no hay nombres
+    }
+
+    // Generar un índice aleatorio
+    let indiceAleatorio = Math.floor(Math.random() * amigos.length);
+
+    // Obtener el nombre sorteado
+    let amigoSorteado = amigos[indiceAleatorio];
+
+    // Mostrar el resultado
+    resultado.innerHTML = "El amigo sorteado es: " + amigoSorteado;
 }
